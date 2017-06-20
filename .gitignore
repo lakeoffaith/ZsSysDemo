@@ -8,6 +8,7 @@
 .rar
 .idea
 *.iml
+*.log
 .settings/*
 /indexes/*
 /target/*
