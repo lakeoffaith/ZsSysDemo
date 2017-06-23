@@ -5,13 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.zs.common.config.Global;
 import com.zs.model.Employee;
 import com.zs.service.EmployeeService;
 
@@ -19,7 +14,6 @@ public class EmployeeServiceTest extends BaseServiceTest{
 	@Autowired
 	public EmployeeService employeeService;
 	
-	@Test
 	public void findAll(){
 		RowBounds rowBounds=new RowBounds(0, 10);
 		List<Employee> findAll = employeeService.findAll(rowBounds);
@@ -31,18 +25,33 @@ public class EmployeeServiceTest extends BaseServiceTest{
 	/**
 	 * 测试事物配置
 	 */
-	@Test
+	//@Test
 	public void insertBatch(){
 		employeeService.insertBatch();
 	}
 
-	
+
 	/**
-	 * 测试 utils
+	 * 
 	 */
-	@Test
-	public void getConfig(){
-		String config = Global.getConfig("adminPath");
-		Assert.assertTrue(config.equals("ZsSys"));
+	
+	public void findPasswordByLoginName(){
+		Employee u = employeeService.findUserByLoginName("zuzhang");
+		Assert.assertTrue(u.getPassword().equals("12345"));
 	}
+	
+	@Test
+	public void findRolesByLoginName(){
+		List<String> findRolesByLoginName = employeeService.findRolesByLoginName("zuzhang");
+		System.out.println(findRolesByLoginName);
+		Assert.assertTrue(findRolesByLoginName.size()>0);
+	}
+	
+	@Test
+	public void findPermissonsByLoginName(){
+		List<String> findRolesByLoginName = employeeService.findPermissonsByLoginName("zuzhang");
+		System.out.println(findRolesByLoginName);
+		Assert.assertTrue(findRolesByLoginName.size()>0);
+	}
+	
 }

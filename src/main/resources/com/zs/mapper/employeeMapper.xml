@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.zs.model.Employee">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  
+  <select id="selectByLoginName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select * from employee where login_name=#{userName}
+    </select>
+    
+    <select id="findRolesByLoginName" resultType="String" parameterType="java.lang.String">
+        select r.name from role r
+		left join emp_role e_r on e_r.roleId=r.id
+		left JOIN employee e on e_r.empId=e.id
+		where e.login_name=#{1}
+    </select>
+    
+    <select id="findPermissonsByLoginName" resultType="String" parameterType="java.lang.String">
+        select res.permission from resource res
+		left join role_resource r_res on res.id=r_res.resourceId
+		left join role r on r_res.roleId=r.id
+		left join emp_role e_r on e_r.roleId=r.id
+		left JOIN employee e on e_r.empId=e.id
+		where e.login_name=#{1}
+    </select>
+</mapper>

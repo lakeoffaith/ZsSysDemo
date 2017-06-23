@@ -20,6 +20,18 @@
 		<shiro.version>1.4.0</shiro.version>
 	</properties>
 	<dependencies>
+	<!-- 表单验证 -->
+	<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>5.4.1.Final</version>
+</dependency>
+	
+     <dependency>  
+        <groupId>javax.validation</groupId>  
+        <artifactId>validation-api</artifactId>  
+        <version>1.1.0.Final</version>  
+    </dependency>
 	<!-- 提供utils-->
 <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 <dependency>
@@ -233,9 +245,7 @@
 							password="${jdbc.password}" onerror="continue"
 							encoding="${project.build.sourceEncoding}">
 							<classpath refid="maven.test.classpath" />
-							<transaction src="db/init.sql" />
-							<transaction src="db/data.sql" />
-
+							<transaction src="db/zsdb.sql" />
 						</sql>
 
 

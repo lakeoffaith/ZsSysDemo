@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zs.mapper.EmployeeMapper">
-  <resultMap id="BaseResultMap" type="com.zs.model.Employee">
+<mapper namespace="com.zs.mapper.ResourceMapper">
+  <resultMap id="BaseResultMap" type="com.zs.model.Resource">
     <!--
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="parent" jdbcType="VARCHAR" property="parent" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
   </resultMap>
 </mapper>

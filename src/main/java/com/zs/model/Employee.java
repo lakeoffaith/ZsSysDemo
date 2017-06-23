@@ -33,5 +33,10 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", loginName=" + loginName + ", password=" + password + "]";
 	}
+	public static Employee getNewInstanceByLoginName(String userName) {
+		Employee e=new Employee();
+		e.setLoginName(userName);
+		return e;
+	}
 	
 }

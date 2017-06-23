@@ -9,6 +9,9 @@
 	</settings>
 
 	<typeAliases>
+		<typeAlias alias="employee" type="com.zs.model.Employee"/>
+		<typeAlias alias="resource" type="com.zs.model.Resource"/>
+		<typeAlias alias="role" type="com.zs.model.Role"/>
 	</typeAliases>
 	<plugins>
 		<!-- com.github.pagehelper为PageHelper类所在包名 -->

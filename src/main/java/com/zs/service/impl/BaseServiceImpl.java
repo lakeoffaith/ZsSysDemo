@@ -19,6 +19,7 @@ public  abstract class BaseServiceImpl<T> implements BaseService<T> {
 	protected abstract void setMapper(Mapper<T> mapper);
 
 	public List<T> findAll(RowBounds rowBounds) {
+		System.out.println("-----");
 		System.out.println(mapper);
 		return mapper.selectByRowBounds(null, rowBounds);
 	}

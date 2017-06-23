@@ -86,7 +86,7 @@
 	<tx:annotation-driven transaction-manager="txManager" />
 	
 	<aop:aspectj-autoproxy/>
-	<import resource="classpath:shiro.xml" />
+	<import resource="classpath:shiro.xml" /> 
   	
 
 </beans>

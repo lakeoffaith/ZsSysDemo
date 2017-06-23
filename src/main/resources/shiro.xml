@@ -18,13 +18,15 @@
 		<property name="unauthorizedUrl" value="/unauthorizedUrl.jsp"/> 
 		<property name="filterChainDefinitions" >
 			<value>
+				
 				/login=anon
 				/index=authc
 				/info=authc
-				/user/**=authc,perms[admin:manage]
+				
 			</value>
 		</property>
 	</bean>
 	 <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
+	
 	 
 </beans>
