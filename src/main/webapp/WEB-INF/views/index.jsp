@@ -70,7 +70,7 @@
                <span class="win-commandicon win-commandring icon-user"></span>
             </a>
             <div class="pull-left" style="padding-top: 10px">
-               <header><h2>admin</h2></header>
+               <header><h2>${currentUser.name}</h2></header>
                
             </div>
          </div>
@@ -113,162 +113,68 @@
                         
                       </div>
    					 </c:if>
-                    <%--  <c:if test="${manageBlock[i]!=null}">
-                        				<a class="tile wide imagetext bg-color-orange" href="${manageBlock[i].url}">
-		                              <div class="image-wrapper">
-		                                 <span class="${manageBlock[i].icon}" style="font-size: 80px"></span>
-		                              </div>
-		                              <div class="column-text">
-		                                 <div class="text-header3">${manageBlock[i].name}</div>
-		                              </div>
-		                           </a>
-                        			</c:if> --%>
-                    <%--  <a class="tile wide imagetext bg-color-orange" href="${item.url}">
-                              <div class="image-wrapper">
-                                 <span class="${item.icon}" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">${item.name}</div>
-                              </div>
-                           </a> --%>
-   
-                     <div class="panorama-section ">
+                   
+                   	<c:if test="${flowBlock!=null && fn:length(flowBlock)>0}">
+   					 <div class="panorama-section ">
    
                         <h2>流程模块</h2>
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                
-                        </div>
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                        </div>
-                 
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                        </div>
-                       
-   
-                     </div>
-   
-                     <div class="panorama-section">
+                        <c:forEach var="item" items="${flowBlock}" step="3" varStatus="v">
+                        
+                        		<div class="tile-column-span-2">
+                        		
+                        	
+                        		<c:forEach var="i" begin="${v.index}" end="${v.index+2}">
+                        			<c:if test="${flowBlock[i]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${flowBlock[i].url}">
+		                              <div class="image-wrapper">
+		                                 <span class="${flowBlock[i].icon}" style="font-size: 80px"></span>
+		                              </div>
+		                              <div class="column-text">
+		                                 <div class="text-header3">${flowBlock[i].name}</div>
+		                              </div>
+		                           </a>
+                        			</c:if>
+                        			
+                        		</c:forEach>
+                        		</div>
+                        	
+                        </c:forEach>
+                        
+                      </div>
+   					 </c:if>
+   					 
+   					 <c:if test="${otherBlock!=null && fn:length(otherBlock)>0}">
+   					 <div class="panorama-section ">
    
                         <h2>定制模块</h2>
-   
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                
-                        </div>
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
+                        <c:forEach var="item" items="${otherBlock}" step="3" varStatus="v">
                         
-                
-                        </div>
+                        		<div class="tile-column-span-2">
+                        		
+                        	
+                        		<c:forEach var="i" begin="${v.index}" end="${v.index+2}">
+                        			<c:if test="${otherBlock[i]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${otherBlock[i].url}">
+		                              <div class="image-wrapper">
+		                                 <span class="${otherBlock[i].icon}" style="font-size: 80px"></span>
+		                              </div>
+		                              <div class="column-text">
+		                                 <div class="text-header3">${otherBlock[i].name}</div>
+		                              </div>
+		                           </a>
+                        			</c:if>
+                        			
+                        		</c:forEach>
+                        		</div>
+                        	
+                        </c:forEach>
+                        
+                      </div>
+   					 </c:if>
    
-                     </div>
+                    
+   
+                     
    
                   </div>
                </div>
