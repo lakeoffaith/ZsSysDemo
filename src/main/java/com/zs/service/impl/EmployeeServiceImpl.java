@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zs.mapper.EmployeeMapper;
 import com.zs.model.Employee;
+import com.zs.model.Resource;
 import com.zs.service.EmployeeService;
 
 import tk.mybatis.mapper.common.Mapper;
@@ -57,6 +58,11 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee> implements Em
 	@Override
 	public List<String> findPermissonsByLoginName(String currentUsername) {
 		return employeeMapper.findPermissonsByLoginName(currentUsername);
+	}
+
+	@Override
+	public List<Resource> findResourcesByLoginName(String currentUsername) {
+		return employeeMapper.findResourcesByLoginName(currentUsername);
 	}
 
 }

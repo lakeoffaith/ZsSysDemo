@@ -10,5 +10,8 @@
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="parent" jdbcType="VARCHAR" property="parent" />
     <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="icon" jdbcType="VARCHAR" property="icon"/>
+    <result column="url" jdbcType="VARCHAR" property="url"/>
+    <result column="blockType" jdbcType="INTEGER" property="blockType"/>
   </resultMap>
 </mapper>

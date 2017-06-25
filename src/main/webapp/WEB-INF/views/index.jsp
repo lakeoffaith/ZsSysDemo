@@ -46,7 +46,7 @@
    <!--[if lt IE 7]>
    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
    <![endif]-->
-
+	
    <div id="wrap">
    
       <!-- Header
@@ -85,95 +85,52 @@
                <div class="metro panorama">
                   <div class="panorama-sections">
    
-                     <div class="panorama-section ">
+   					 <c:if test="${manageBlock!=null && fn:length(manageBlock)>0}">
+   					 <div class="panorama-section ">
    
                         <h2>管理模块</h2>
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
+                        <c:forEach var="item" items="${manageBlock}" step="3" varStatus="v">
+                        
+                        		<div class="tile-column-span-2">
+                        		
+                        	
+                        		<c:forEach var="i" begin="${v.index}" end="${v.index+2}">
+                        			<c:if test="${manageBlock[i]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${manageBlock[i].url}">
+		                              <div class="image-wrapper">
+		                                 <span class="${manageBlock[i].icon}" style="font-size: 80px"></span>
+		                              </div>
+		                              <div class="column-text">
+		                                 <div class="text-header3">${manageBlock[i].name}</div>
+		                              </div>
+		                           </a>
+                        			</c:if>
+                        			
+                        		</c:forEach>
+                        		</div>
+                        	
+                        </c:forEach>
+                        
+                      </div>
+   					 </c:if>
+                    <%--  <c:if test="${manageBlock[i]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${manageBlock[i].url}">
+		                              <div class="image-wrapper">
+		                                 <span class="${manageBlock[i].icon}" style="font-size: 80px"></span>
+		                              </div>
+		                              <div class="column-text">
+		                                 <div class="text-header3">${manageBlock[i].name}</div>
+		                              </div>
+		                           </a>
+                        			</c:if> --%>
+                    <%--  <a class="tile wide imagetext bg-color-orange" href="${item.url}">
                               <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
+                                 <span class="${item.icon}" style="font-size: 80px"></span>
                               </div>
                               <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
+                                 <div class="text-header3">${item.name}</div>
                               </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                
-                        </div>
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                        </div>
-                 
-                        <div class="tile-column-span-2">
-                           <a class="tile wide imagetext bg-color-orange" href="./list-detail.html">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">应用主页</div>
-                              </div>
-                           </a>
-   
-                        <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                           <div class="image-wrapper">
-                              <span class="icon-comment" style="font-size: 80px"></span>
-                           </div>
-                           <div class="column-text">
-                              <div class="text-header3">系统设计</div>
-                           </div>
-                        </a>
-                           <a class="tile wide imagetext tile-double bg-color-green" href="#">
-                              <div class="image-wrapper">
-                                 <span class="icon-comment" style="font-size: 80px"></span>
-                              </div>
-                              <div class="column-text">
-                                 <div class="text-header3">系统设计</div>
-                              </div>
-                           </a>
-                        </div>
-                       
-   
-                     </div>
+                           </a> --%>
    
                      <div class="panorama-section ">
    

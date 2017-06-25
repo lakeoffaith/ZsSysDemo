@@ -30,4 +30,13 @@
 		left JOIN employee e on e_r.empId=e.id
 		where e.login_name=#{1}
     </select>
+    
+    <select id="findResourcesByLoginName" resultType="resource" parameterType="java.lang.String">
+        select res.* from resource res 
+		left join role_resource r_res on res.id=r_res.resourceId
+		left join role r on r_res.roleId=r.id
+		left join emp_role e_r on e_r.roleId=r.id
+		left JOIN employee e on e_r.empId=e.id
+		where e.login_name=#{1} and res.type=1
+    </select>
 </mapper>

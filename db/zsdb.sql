@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2017-06-23 16:51:17
+Date: 2017-06-25 11:34:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,33 +66,36 @@ CREATE TABLE `resource` (
   `name` varchar(255) DEFAULT NULL,
   `permission` varchar(255) DEFAULT NULL,
   `type` int(1) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `blockType` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of resource
 -- ----------------------------
-INSERT INTO `resource` VALUES ('1', '0', '回收', 'module:huishou', '0');
-INSERT INTO `resource` VALUES ('2', '0', '配包', 'module:peibao', '0');
-INSERT INTO `resource` VALUES ('3', '0', '入库', 'module:ruku', '0');
-INSERT INTO `resource` VALUES ('4', '0', '清洗', 'module:clean', '0');
-INSERT INTO `resource` VALUES ('5', '0', '灭菌', 'module:miejun', '0');
-INSERT INTO `resource` VALUES ('6', '0', '发放', 'module:fasong', '0');
-INSERT INTO `resource` VALUES ('7', '0', '清洗审核', 'module:clean:shenhe', '0');
-INSERT INTO `resource` VALUES ('8', '0', '灭菌审核', 'module:miejun:shenhe', '0');
-INSERT INTO `resource` VALUES ('9', '0', '工单汇总', 'module:gongdan:huizong', '0');
-INSERT INTO `resource` VALUES ('10', '0', '手术排班记录', 'module:shoushupaiban', '0');
-INSERT INTO `resource` VALUES ('11', '0', '通告管理', 'module:tongzhi', '0');
-INSERT INTO `resource` VALUES ('12', '0', '系统设置', 'module:setting', '0');
-INSERT INTO `resource` VALUES ('13', '0', '追溯', 'module:zhuisu', '0');
-INSERT INTO `resource` VALUES ('14', '0', '成本核算', 'module:chengben', '0');
-INSERT INTO `resource` VALUES ('15', '0', '异常处理', 'module:warning', '0');
-INSERT INTO `resource` VALUES ('16', '0', '清洗统计', 'module:clean:tongji', '0');
-INSERT INTO `resource` VALUES ('17', '0', '统计报表', 'module:excel', '0');
-INSERT INTO `resource` VALUES ('18', '0', '包监控', 'module:bao:jiankong', '0');
-INSERT INTO `resource` VALUES ('19', '0', '灭菌统计', 'module:miejun:tongji', '0');
-INSERT INTO `resource` VALUES ('20', '0', '清洗审核', 'module:clean:audit', '0');
-INSERT INTO `resource` VALUES ('21', null, '员工查询', 'employee:list', null);
+INSERT INTO `resource` VALUES ('1', '0', '回收', 'huishou', '1', 'icon-trash', '/huishou/index', '1');
+INSERT INTO `resource` VALUES ('2', '0', '配包', 'peibao', '1', 'icon-landscape', '/peibao/index', '1');
+INSERT INTO `resource` VALUES ('3', '0', '入库', 'ruku', '1', ' icon-download', '/ruku/index', '1');
+INSERT INTO `resource` VALUES ('4', '0', '清洗', 'clean', '1', ' icon-air', '/clean/index', '1');
+INSERT INTO `resource` VALUES ('5', '0', '灭菌', 'miejun', '1', ' icon-briefcase-2', '/miejun/index', '1');
+INSERT INTO `resource` VALUES ('6', '0', '发放', 'fafang', '1', 'icon-upload-3', '/fafang/index', '1');
+INSERT INTO `resource` VALUES ('7', '0', '清洗审核', 'clean:shenhe', '1', 'icon-air', '/clean/shenhe', '1');
+INSERT INTO `resource` VALUES ('8', '0', '灭菌审核', 'miejun:shenhe', '1', 'icon-briefcase-2', '/miejun/shenhe', '1');
+INSERT INTO `resource` VALUES ('9', '0', '工单汇总', 'gongdan:huizong', '1', ' icon-statistics', '/gongdan/huizong', '1');
+INSERT INTO `resource` VALUES ('10', '0', '手术排班记录', 'shoushupaiban', '1', ' icon-calendar', '/shoushupaiban/index', '2');
+INSERT INTO `resource` VALUES ('11', '0', '通告管理', 'tongzhi', '1', ' icon-bell-2', '/tongzhi/index', '2');
+INSERT INTO `resource` VALUES ('12', '0', '系统设置', 'setting', '1', 'icon-cog-3', '/setting', '2');
+INSERT INTO `resource` VALUES ('13', '0', '追溯', 'zhuisu', '1', 'icon-loop-3', '/zhuisu/index', '0');
+INSERT INTO `resource` VALUES ('14', '0', '成本核算', 'chengben', '1', ' icon-keyboard-2', '/chengben/index', '0');
+INSERT INTO `resource` VALUES ('15', '0', '异常处理', 'warning', '1', 'icon-notification', '/warning/index', '0');
+INSERT INTO `resource` VALUES ('16', '0', '清洗统计', 'clean:tongji', '1', ' icon-bars', '/clean/tongji', '0');
+INSERT INTO `resource` VALUES ('17', '0', '统计报表', 'tongji', '1', ' icon-stats', '/tongji/index', '0');
+INSERT INTO `resource` VALUES ('18', '0', '包监控', 'bao:jiankong', '1', 'icon-views', '/bao/jiankong', '0');
+INSERT INTO `resource` VALUES ('19', '0', '灭菌统计', 'miejun:tongji', '1', ' icon-chart', '/miejun/tongji', '0');
+INSERT INTO `resource` VALUES ('21', null, '员工查询', 'employee:list', null, null, null, null);
+INSERT INTO `resource` VALUES ('22', null, '主页', null, '1', ' icon-home-2', '/index', '0');
 
 -- ----------------------------
 -- Table structure for role
@@ -103,7 +106,7 @@ CREATE TABLE `role` (
   `name` varchar(255) DEFAULT NULL,
   `info` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of role

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.zs.model.Employee;
+import com.zs.model.Resource;
 
 import tk.mybatis.mapper.common.Mapper;
 @Component(value="employeeMapper")
@@ -14,4 +15,6 @@ public interface EmployeeMapper extends Mapper<Employee> {
 	public List<String> findRolesByLoginName(String currentUsername);
 
 	public List<String> findPermissonsByLoginName(String currentUsername);
+	
+	public List<Resource> findResourcesByLoginName(String currentUsername);
 }

@@ -8,12 +8,13 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.zs.model.Employee;
+import com.zs.model.Resource;
 import com.zs.service.EmployeeService;
 
 public class EmployeeServiceTest extends BaseServiceTest{
 	@Autowired
 	public EmployeeService employeeService;
-	
+	@Test
 	public void findAll(){
 		RowBounds rowBounds=new RowBounds(0, 10);
 		List<Employee> findAll = employeeService.findAll(rowBounds);
@@ -34,7 +35,7 @@ public class EmployeeServiceTest extends BaseServiceTest{
 	/**
 	 * 
 	 */
-	
+	@Test
 	public void findPasswordByLoginName(){
 		Employee u = employeeService.findUserByLoginName("zuzhang");
 		Assert.assertTrue(u.getPassword().equals("12345"));
@@ -52,6 +53,13 @@ public class EmployeeServiceTest extends BaseServiceTest{
 		List<String> findRolesByLoginName = employeeService.findPermissonsByLoginName("zuzhang");
 		System.out.println(findRolesByLoginName);
 		Assert.assertTrue(findRolesByLoginName.size()>0);
+	}
+	
+	@Test
+	public void findResourcesByLoginName(){
+		List<Resource> list = employeeService.findResourcesByLoginName("zuzhang");
+		System.out.println(list);
+		Assert.assertTrue(list.size()>0);
 	}
 	
 }
