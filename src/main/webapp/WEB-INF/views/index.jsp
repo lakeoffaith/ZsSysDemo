@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/include/taglib.jsp"%>
 <!DOCTYPE html>
+<html class="no-js"> 
 <head>
    <meta charset="utf-8" />
    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
@@ -88,20 +89,20 @@
    					 <c:if test="${manageBlock!=null && fn:length(manageBlock)>0}">
    					 <div class="panorama-section ">
    
-                        <h2>管理模块</h2>
-                        <c:forEach var="item" items="${manageBlock}" step="3" varStatus="v">
+                        <h2>流程模块</h2>
+                        <c:forEach var="i"  begin="0" end="2">
                         
                         		<div class="tile-column-span-2">
                         		
                         	
-                        		<c:forEach var="i" begin="${v.index}" end="${v.index+2}">
-                        			<c:if test="${manageBlock[i]!=null}">
-                        				<a class="tile wide imagetext bg-color-orange" href="${manageBlock[i].url}">
+                        		<c:forEach var="j" begin="${i*3}" end="${i*3+2}">
+                        			<c:if test="${manageBlock[j]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${manageBlock[j].url}">
 		                              <div class="image-wrapper">
-		                                 <span class="${manageBlock[i].icon}" style="font-size: 80px"></span>
+		                                 <span class="${manageBlock[j].icon}" style="font-size: 80px"></span>
 		                              </div>
 		                              <div class="column-text">
-		                                 <div class="text-header3">${manageBlock[i].name}</div>
+		                                 <div class="text-header3">${manageBlock[j].name}</div>
 		                              </div>
 		                           </a>
                         			</c:if>
@@ -118,19 +119,19 @@
    					 <div class="panorama-section ">
    
                         <h2>流程模块</h2>
-                        <c:forEach var="item" items="${flowBlock}" step="3" varStatus="v">
+                        <c:forEach var="i"  begin="0" end="2">
                         
                         		<div class="tile-column-span-2">
                         		
                         	
-                        		<c:forEach var="i" begin="${v.index}" end="${v.index+2}">
-                        			<c:if test="${flowBlock[i]!=null}">
-                        				<a class="tile wide imagetext bg-color-orange" href="${flowBlock[i].url}">
+                        		<c:forEach var="j" begin="${i*3}" end="${i*3+2}">
+                        			<c:if test="${flowBlock[j]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${flowBlock[j].url}">
 		                              <div class="image-wrapper">
-		                                 <span class="${flowBlock[i].icon}" style="font-size: 80px"></span>
+		                                 <span class="${flowBlock[j].icon}" style="font-size: 80px"></span>
 		                              </div>
 		                              <div class="column-text">
-		                                 <div class="text-header3">${flowBlock[i].name}</div>
+		                                 <div class="text-header3">${flowBlock[j].name}</div>
 		                              </div>
 		                           </a>
                         			</c:if>
@@ -147,19 +148,19 @@
    					 <div class="panorama-section ">
    
                         <h2>定制模块</h2>
-                        <c:forEach var="item" items="${otherBlock}" step="3" varStatus="v">
+                        <c:forEach var="i"  begin="0" end="2">
                         
                         		<div class="tile-column-span-2">
                         		
                         	
-                        		<c:forEach var="i" begin="${v.index}" end="${v.index+2}">
-                        			<c:if test="${otherBlock[i]!=null}">
-                        				<a class="tile wide imagetext bg-color-orange" href="${otherBlock[i].url}">
+                        		<c:forEach var="j" begin="${i*3}" end="${i*3+2}">
+                        			<c:if test="${otherBlock[j]!=null}">
+                        				<a class="tile wide imagetext bg-color-orange" href="${otherBlock[j].url}">
 		                              <div class="image-wrapper">
-		                                 <span class="${otherBlock[i].icon}" style="font-size: 80px"></span>
+		                                 <span class="${otherBlock[j].icon}" style="font-size: 80px"></span>
 		                              </div>
 		                              <div class="column-text">
-		                                 <div class="text-header3">${otherBlock[i].name}</div>
+		                                 <div class="text-header3">${otherBlock[j].name}</div>
 		                              </div>
 		                           </a>
                         			</c:if>
@@ -177,6 +178,7 @@
                      
    
                   </div>
+               </div>
                </div>
                <a id="panorama-scroll-prev" href="#"></a>
                <a id="panorama-scroll-next" href="#"></a>
