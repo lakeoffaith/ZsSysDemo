@@ -89,12 +89,10 @@
    					 <c:if test="${manageBlock!=null && fn:length(manageBlock)>0}">
    					 <div class="panorama-section ">
    
-                        <h2>流程模块</h2>
+                        <h2>管理模块</h2>
                         <c:forEach var="i"  begin="0" end="2">
                         
                         		<div class="tile-column-span-2">
-                        		
-                        	
                         		<c:forEach var="j" begin="${i*3}" end="${i*3+2}">
                         			<c:if test="${manageBlock[j]!=null}">
                         				<a class="tile wide imagetext bg-color-orange" href="${manageBlock[j].url}">
