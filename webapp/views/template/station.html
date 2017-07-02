@@ -1,0 +1,8 @@
+<div class="col-lg-4">
+    <div class="form-group">
+        <!--<label for="station">加油站</label>-->
+        <input class="form-control" disabled="disabled" ng-hide="Auth.isMaster()" value="{{Auth.user().stationName}}">
+        <!--<angucomplete  ng-show="Auth.isMaster();" id="station" placeholder="请输入油站名称" pause="1000" selectedobject="station" selectedvalue="params.stationId" selectedkey="stationId" url="{{stationSearchUrl}}" titlefield="stationName" inputclass="form-control" minlength="0"/>-->
+        <station-select ng-show="Auth.isMaster()"/>
+    </div>
+</div>

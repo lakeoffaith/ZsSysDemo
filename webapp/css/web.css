@@ -1,0 +1,214 @@
+/* app css stylesheet */
+.main-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/* Charts */
+.data-chart {
+  height: 400px;
+  padding: 20px 0 50px;
+}
+
+/* Login */
+.login-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9996;
+  width: 100%;
+  height: 100%;
+  background-color: #d2d6de;
+}
+.login-box {
+  width: 360px;
+  margin: 7% auto;
+}
+.login-logo {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+.login-box-body {
+  background: #fff;
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+
+/* loading box */
+.loading-box {
+  position: fixed;
+  top: 2px;
+  right: 8px;
+  z-index: 9995;
+  padding: 0.1em 0.3em;
+  font-size: 12px;
+  background-color: #ef5350;
+  color: #fff;
+}
+
+/* Loading Mask */
+.loading-mask {
+  width: 85%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+  position: fixed;
+  z-index: 9995;
+  text-align: center;
+}
+.loading-mask .fa {
+  position: relative;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.pagination > li > a.currentPage {
+	background-color: #ecf0f5;
+}
+
+/* Station List */
+.station-list {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+/* Alert */
+.alert-custom {
+    position: fixed;
+    width: 40%;
+    right: 30%;
+    top: 20px;
+    z-index: 9999;
+}
+
+.alert-custom .alert-message {
+    padding-right: 120px;
+}
+
+@media (max-width: 767px) {
+  .loading-mask {
+    width: 100%;
+  }
+  
+  .alert-custom {
+    width: 90%;
+    right: 5%;
+  }
+}
+
+/*stationZoneMap*/
+ .maxMap{
+   cursor: pointer;
+   background-color: white;
+   padding: 2% 10% 10% 10%;
+ }
+.headNode{
+  display: inline-block;
+  border: 1px solid #2196f3;
+  padding: .5% 2% .5% 2%;
+  text-align: center;
+  background-color: #2196f3;
+  color: #fff;
+  min-width: 250px;
+}
+.boss{
+  margin-left: 10%;
+}
+ul{
+  list-style: none;
+}
+.childSpan{
+  display: inline-block;
+  padding: .5% 2% .5% 2%;
+  min-width: 200px;
+  text-align: center;
+  background-color: white;
+}
+.childLi{
+  padding-top: 30px;
+}
+.boss>.fatherUl{
+  border-left: 1px solid #2196f3;
+  margin: 0;
+  padding: 0;
+}
+.boss>.fatherUl>li{
+  border-left: 0;
+}
+.boss>.fatherUl>li>.childSpan{
+  border: 1px solid #28bebd;
+  color: #fff;
+  background-color: #28bebd;
+}
+.boss>.fatherUl:last-child{
+  border-left: 0;
+}
+.boss>.fatherUl:last-child>li{
+  border-left: 1px solid #2196f3;
+}
+.boss>.fatherUl>ul{
+  border-left: 1px solid #2196f3;
+  padding: 0;
+  margin-left: 8%;
+}
+.boss>.fatherUl>ul>li>.childSpan{
+  border: 1px solid #6b79c4  ;
+  color: #fff ;
+  background-color: #6b79c4;
+}
+.boss>.fatherUl>ul>ul{
+  margin-left: 5%;
+}
+.boss>.fatherUl>ul>ul>li{
+  border-left: 1px solid #2196f3;
+}
+.boss>.fatherUl>ul>ul>li>.childSpan{
+  border: 1px solid #e392eb ;
+  color: #fff;
+  background-color: #e392eb;
+}
+.boss>.fatherUl>ul:last-child>li{
+  border-left: 1px solid #2196f3;
+}
+.boss>.fatherUl>ul:last-child{
+  border-left: 0;
+}

@@ -1,0 +1,42 @@
+<div ng-controller="loginCtrl">
+	<section class="login-section">
+		<div class="login-box">
+	      	<div class="login-logo">
+	        	<img src="images/logo.png" />
+	      	</div>
+			<div class="login-box-body">
+        		<p class="login-box-msg"><b>希望医院</b></p>
+		        <form class="w5c-form" name="loginForm" w5c-form-validate>
+		          <div class="form-group has-feedback">
+		            <input type="text" class="form-control" id="username" name="username" required placeholder="用户名" ng-model="data.username">
+		            <span class="fa fa-user form-control-feedback"></span>
+		          </div>
+
+		          <div class="form-group has-feedback">
+		            <input type="password" class="form-control" id="password" name="password" required placeholder="密码" ng-model="data.password">
+		            <span class="fa fa-lock form-control-feedback"></span>
+		          </div>
+
+		          <!--<div class="form-group has-feedback margin-bottom">
+		            <input type="text" class="form-control" id="code" name="code" required placeholder="验证码" ng-model="data.code">
+		            <span class="fa form-control-feedback form-code">123456</span>
+		          </div>-->
+
+		          <div class="row">
+		            <!--<div class="col-xs-8">
+		              <div class="checkbox">
+		                <label>
+		                  <input type="checkbox"> 记住我
+		                </label>
+		              </div>
+		            </div>-->
+		            
+		            <div class="col-xs-4 col-xs-offset-4">
+		              <button class="btn btn-oil-station btn-block btn-flat" w5c-form-submit="login()">登录</button>
+		            </div>
+		          </div>
+		        </form>
+			</div>
+		</div>
+	</section>
+</div>

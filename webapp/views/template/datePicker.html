@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <a class="dropdown-toggle" id="{{id}}_value" role="button" data-toggle="dropdown" data-target="#">
+    <div class="input-group">
+	  <input type="text" class="input-large form-control" ng-model="selectedDate">
+	    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+	  </input>
+	</div>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="{{id}}_value">
+    <datetimepicker ng-model="selectedDate" date-format datetimepicker-config="{dropdownSelector: '#{{id}}_value', minView: 'day'}"></datetimepicker>
+  </ul>
+</div>
