@@ -1,13 +1,10 @@
 package com.zs.service;
 
+import com.zs.model.Employee;
+
 import java.util.List;
 
-import com.zs.model.Employee;
-import com.zs.model.Resource;
-
-public interface EmployeeService extends BaseService<Employee> {
-	public void insertBatch();
-
+public interface EmployeeService  {
 
 	public Employee findUserByLoginName(String userName);
 
@@ -17,5 +14,4 @@ public interface EmployeeService extends BaseService<Employee> {
 
 	public List<String> findPermissonsByLoginName(String currentUsername);
 	
-	public List<Resource> findResourcesByLoginName(String currentUsername);
 }

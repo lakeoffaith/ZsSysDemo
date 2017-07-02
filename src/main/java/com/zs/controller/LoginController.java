@@ -1,37 +1,28 @@
 package com.zs.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.zs.service.EmployeeService;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.zs.model.Resource;
-import com.zs.service.EmployeeService;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class LoginController extends BaseController {
-	@Autowired
+@RequestMapping("/login")
+public class LoginController  {
+	@Resource
 	private EmployeeService employeeService;
+
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(Model model){
 		System.out.println("index");
 		//查找当前用户的所有menusResource
-		List<Resource> lists=employeeService.findResourcesByLoginName(getCurrentUserName());
-		model.addAttribute("manageBlock", Resource.listByBlockType(lists,Resource.MANAGEBLOCK));
-		model.addAttribute("flowBlock", Resource.listByBlockType(lists,Resource.FLOWBLOCK));
-		model.addAttribute("otherBlock", Resource.listByBlockType(lists,Resource.OTHERBLOCK));
-	
+
 		return "index";
 	}
 	@RequestMapping(value="/login",method=RequestMethod.GET)
@@ -57,16 +48,12 @@ public class LoginController extends BaseController {
 			model.addAttribute("message", "用户名和密码格式不对");
 			return resultPage;
 		}
-		UsernamePasswordToken token=new UsernamePasswordToken(username, password);
-		Subject subject = SecurityUtils.getSubject();
-		
-		try {
-			subject.login(token);
+
+
+
 			resultPage="index";
-		} catch(UnknownAccountException uae){  
-            System.out.println("对用户[" + username + "]进行登录验证..验证未通过,未知账户");  
+            System.out.println("对用户[" + username + "]进行登录验证..验证未通过,未知账户");
             request.setAttribute("message_login", "未知账户");  
-        }
 		return  "redirect:/index";
 	}
 }

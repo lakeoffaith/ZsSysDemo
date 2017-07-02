@@ -1,20 +1,15 @@
 package com.zs.mapper;
 
-import java.util.List;
-
+import com.zs.model.Employee;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
-import com.zs.model.Employee;
-import com.zs.model.Resource;
+import java.util.List;
+public interface EmployeeMapper  {
+	public List<Employee> selectByLoginName(@Param("userName")String userName);
 
-import tk.mybatis.mapper.common.Mapper;
-@Component(value="employeeMapper")
-public interface EmployeeMapper extends Mapper<Employee> {
-	public List<Employee> selectByLoginName(String userName);
-
-	public List<String> findRolesByLoginName(String currentUsername);
+	public List<String> findRolesByLoginName( @Param("currentUsername") String currentUsername);
 
 	public List<String> findPermissonsByLoginName(String currentUsername);
 	
-	public List<Resource> findResourcesByLoginName(String currentUsername);
 }

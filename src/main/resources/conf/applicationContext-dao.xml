@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!-- db config start -->
+    
+	<bean id="ZsysSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ZsysDataSource" />
+		<property name="mapperLocations" value="classpath:sqlMapper/*Mapper.xml" />
+		<property name="typeAliasesPackage" value="com.zs.model" />
+	</bean>
+
+	<!-- 自动扫描mapper -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.zs.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="ZsysSqlSessionFactory" />
+		<!--  
+		此种写法会导致配置文件无法替换,请查看spring对于加载的理解
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryCyb"></property> 
+		-->
+	</bean>
+
+	<!-- 开启事务注解驱动 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="ZsysDataSource" />
+	</bean>
+	
+	<!-- db config end -->
+	
+
+</beans>

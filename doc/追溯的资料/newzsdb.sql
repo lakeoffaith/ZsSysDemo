@@ -1,9 +1,4 @@
-﻿# Host: localhost  (Version 5.7.10)
-# Date: 2017-07-02 09:25:00
-# Generator: MySQL-Front 6.0  (Build 2.20)
-
-
-#
+﻿#
 # Structure for table "bn_clean_state_tbl"
 #
 
